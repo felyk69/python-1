@@ -1,0 +1,27 @@
+# Controle de utilização de salas de um cinema
+
+lugares_vagos = [10,20,2,12,4]
+
+while True:
+  sala = int(input("Digite a sala que deseja (e 0 para sair): "))
+  if sala == 0:
+    print("fim")
+    break
+  if sala > len(lugares_vagos) or sala < 1:
+    print("Sala inválida")
+  elif lugares_vagos[sala - 1] == 0:
+    print("sala lotada")
+  else:
+    lugares = int(input("Digite a quantidade de lugares que voce deseja: %d vagos " % lugares_vagos[sala - 1]))
+  if lugares > lugares_vagos[sala - 1]:
+    print("Esse número de lugares não está disponível.")
+  elif lugares < 0:
+    print("Número inválido")
+  else:
+    lugares_vagos[sala-1] -= lugares
+    print("%d lugares vendidos "% lugares)
+print("Utilização das sala")
+for x,l in enumerate(lugares_vagos):
+  print("Sala %d - %d lugar(es) vazio(s)"% (x+1, l))
+
+
